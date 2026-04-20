@@ -6,8 +6,9 @@ const {
     getUserById,
     deleteUser
 } = require("../controllers/userController");
+const { validateCreateUser } = require("../middleware/validateMiddleware");
 
-router.post("/", createUser);
+router.post("/create", validateCreateUser, createUser);
 router.get("/", getUsers);
 router.get("/:id", getUserById);
 router.delete("/:id", deleteUser);
