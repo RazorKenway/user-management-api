@@ -13,7 +13,7 @@ exports.createUser = async (req, res, next) => {
     }
 };
 
-// GET ALL USERS (with pagination bonus)
+// GET ALL USERS with pagination
 exports.getUsers = async (req, res, next) => {
     try {
         const page = parseInt(req.query.page) || 1;

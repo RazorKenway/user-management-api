@@ -8,9 +8,11 @@ const {
 } = require("../controllers/userController");
 const { validateCreateUser } = require("../middleware/validateMiddleware");
 
-router.post("/create", validateCreateUser, createUser);
+router.post("/", validateCreateUser, createUser);
 router.get("/", getUsers);
 router.get("/:id", getUserById);
 router.delete("/:id", deleteUser);
+
+module.exports = router;
 
 module.exports = router;
