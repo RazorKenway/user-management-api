@@ -12,7 +12,17 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true
         },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true
+        },
         address: {
+            type: String,
+            required: true
+        },
+        phoneNumber: {
             type: String,
             required: true
         },
@@ -20,12 +30,6 @@ const userSchema = new mongoose.Schema(
             type: Number,
             min: 0,
             max: 120
-        },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-            lowercase: true
         }
     },
     { timestamps: true }
