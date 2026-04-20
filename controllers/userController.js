@@ -3,11 +3,7 @@ const User = require("../models/userModel");
 // CREATE USER
 exports.createUser = async (req, res, next) => {
     try {
-        const { firstName, lastName, email, address, phoneNumber, age } = req.body;
-
-        if (!firstName || !lastName || !email || !address || !phoneNumber) {
-            return res.status(400).json({ message: "firstName, lastName, email, address, and phoneNumber are required" });
-        }
+        const { firstName, lastName, email, address, phoneNumber, age } = req.validatedBody;
 
         const user = await User.create({ firstName, lastName, email, address, phoneNumber, age });
 
@@ -17,7 +13,7 @@ exports.createUser = async (req, res, next) => {
     }
 };
 
-// GET ALL USERS (with pagination bonus)
+// GET ALL USERS with pagination
 exports.getUsers = async (req, res, next) => {
     try {
         const page = parseInt(req.query.page) || 1;
